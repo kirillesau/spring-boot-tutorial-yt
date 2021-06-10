@@ -1,9 +1,8 @@
 package com.example.springboottutorialyt.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +21,10 @@ public class StudentController {
   @GetMapping
   public List<Student> getStudents() {
     return studentService.getStudents();
+  }
+
+  @PostMapping
+  public void registerNewStudent(@RequestBody Student student) {
+    studentService.addNewStudent(student);
   }
 }
